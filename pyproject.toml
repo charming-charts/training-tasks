@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "training-tasks"
+version = "0.1.0"
+description = ""
+authors = [
+    "Mojzis Stupka",
+    "Jan Kislinger <jan.kislinger@gmail.com>",
+]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+gapminder = "^0.1"
+jupyterlab = "^3.5.2"
+jupytext = "^1.14.4"
+pandas = "^1.5.2"
+plotly = "^5.11.0"
+
+
+[tool.poetry.group.dev.dependencies]
+nbqa = "^1.6.0"
+black = "^22.12.0"
+flake8 = "^6.0.0"
+isort = "^5.11.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--max-line-length=120"
+]
