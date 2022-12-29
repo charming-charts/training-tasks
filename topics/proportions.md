@@ -91,3 +91,35 @@ The chart naturally shows values from 0 to 1. To change it to display percentage
 fig.update_xaxes(tickformat=".0%")
 fig
 ```
+
+### Labels, Titles and Captions
+
+To make the chart more readable, replace column names with human-readible descriptions. In case of continents, we can omit the label entirely as the categories itself are self-explanatory so any label would be redundant. Plotly accepts argument `labels` and expects a dictionary. Keys should be column names and values could be any string we want to display.
+
+```python
+fig = px.bar(
+    pop_per_cont, "rel_pop", "year", color="continent", orientation="h",
+    labels={"year": "Year", "rel_pop": "Population (relative to total)", "continent": ""},
+)
+fig.update_xaxes(tickformat=".0%")
+fig
+```
+
+Add title and subtitle to the chart. Title usually what kind of data the chart shows ~and subtitle summarizes one key finding~.
+
+```python
+fig = px.bar(
+    pop_per_cont, "rel_pop", "year", color="continent", orientation="h",
+    labels={"year": "Year", "rel_pop": "Population (relative to total)", "continent": ""},
+    title="Relative population of continents",
+)
+fig.update_xaxes(tickformat=".0%")
+fig
+```
+
+Finally, change type of y axis to `"category"` to change tick values to match actual values in the data. 
+
+```python
+fig.update_yaxes(type="category")
+fig
+```
